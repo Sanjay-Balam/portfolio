@@ -36,7 +36,6 @@ const categorizedSkills = {
     "Vercel",
     "Netlify",
   ],
-  "Testing & Linting": ["Jest", "Cypress", "ESLint", "Prettier"],
   "Other Tools & Skills": [
     "Postman",
     "Webpack",
