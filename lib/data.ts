@@ -128,43 +128,21 @@ export const skillsData = [
   "Node.js",
   "Express.js",
   "NestJS",
-  "Apollo Server",
   "Prisma",
-  "GraphQL",
   "REST API",
-  "Kafka",
 
   // Databases & ORM
   "MongoDB",
   "PostgreSQL",
-  "Redis",
 
   // DevOps & Tools
   "Git",
   "Docker",
-  "Kubernetes",
-  "CI/CD Pipelines",
   "GitHub Actions",
-  "Jenkins",
-  "Bash Scripting",
   "Linux",
   "Nginx",
   "AWS (EC2, S3)",
   "Vercel",
   "Grafana",
 
-  // Monitoring & Logging
-  "Prometheus",
-  "Grafana",
-
-  // Testing & Linting
-  "Jest",
-  "Cypress",
-  "ESLint",
-  "Prettier",
-
-  // Other Tools & Skills
-  "Figma",
-  "Postman",
-  "Webpack",
 ] as const;
