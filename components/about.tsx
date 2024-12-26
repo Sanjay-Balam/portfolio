@@ -19,7 +19,7 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <motion.p className="mb-3">
-        I am a recent graduate in{" "}
+        I am a recent graduate (2024) in{" "}
         <span className="font-medium">Electronics and Communication Engineering (ECE)</span> with a 
         strong passion for problem-solving and a solid foundation in {" "} 
         <span className="font-medium">Data Structures and Algorithms (DSA).</span> My journey into programming has been driven by the 
