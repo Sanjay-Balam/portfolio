@@ -36,15 +36,13 @@ export const metadata = {
     //         url: "https://your-portfolio-url.com/your-image.jpg", // Replace with an actual image URL
     //         width: 800,
     //         height: 600,
-    //         alt: "Vedant's Portfolio Image"
     //       }
     //     ],
     //     type: "website",
     //   },
     //   twitter: {
     //     card: "summary_large_image",
-    //     title: "Vedant | Personal Portfolio",
-    //     description: "Explore Vedant's work as a full-stack developer.",
+    //     title: "Sanjay's | Personal Portfolio",
     //     image: "https://your-portfolio-url.com/your-image.jpg", // Replace with an actual image URL
   },
 };

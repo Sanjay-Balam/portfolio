@@ -36,7 +36,7 @@ export const sendEmail = async (formData: FormData) => {
       to: process.env.RECEIVER_EMAIL,
       subject: `PORTFOLIO WEBSITE - from ${senderEmail.trim()} - ${subject.trim()}`, // subject line for identifying the email
       html: `<div> <p>${message.trim()}</p>
-      <p>Sent from Vedant's Portfolio Website by ${senderEmail}</p>
+      <p>Sent from sanjay's Portfolio Website by ${senderEmail}</p>
       </div>`,
     });
   } catch (error: any) {

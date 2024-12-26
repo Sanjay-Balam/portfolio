@@ -108,7 +108,7 @@ export function CreateProject({}) {
         <Meteors />
         <h1 className="text-black dark:text-white text-lg">Adding soon...</h1>
         <Link
-          href={"https://github.com/vedantBhawsar"}
+          href={"https://github.com/Sanjay-Balam"}
           target="_blank"
           className=" text-black"
         >
