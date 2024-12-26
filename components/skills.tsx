@@ -32,13 +32,11 @@ const categorizedSkills = {
     "Docker",
     "GitHub Actions",
     "Linux",
-    "Nginx",
     "Vercel",
     "Netlify",
   ],
   "Other Tools & Skills": [
     "Postman",
-    "Webpack",
     "Vite",
     "npm",
     "pnpm",
