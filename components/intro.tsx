@@ -53,21 +53,13 @@ export default function Intro() {
               className: "font-bold",
             },
             {
-              text: "with",
-              className: "",
-            },
-            {
-              text: "1 year",
-              className: "font-bold",
-            },
-            {
-              text: "experience. I enjoy building",
+              text: "passionate about building dynamic and responsive",
               className: "",
             },
 
             {
               text: "web Applications",
-              className: "italic",
+              className: "",
             },
           ]}
         />
