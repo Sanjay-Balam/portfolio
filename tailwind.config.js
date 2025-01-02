@@ -30,6 +30,8 @@ module.exports = {
         "glow": "glow 2s ease-in-out infinite alternate",
         "slide-up-fade": "slide-up-fade 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
         "blob": "blob 7s infinite",
+        "lightning": "lightning 1.5s infinite",
+        "pulse": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         "gradient-xy": {
@@ -44,46 +46,68 @@ module.exports = {
         },
         "float": {
           "0%, 100%": {
-            "transform": "translateY(0)",
+            "transform": "translateY(0)"
           },
           "50%": {
-            "transform": "translateY(-20px)",
+            "transform": "translateY(-20px)"
           }
         },
         "glow": {
           "0%": {
-            "box-shadow": "0 0 5px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.3), 0 0 15px rgba(255,255,255,0.1)",
+            "box-shadow": "0 0 5px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.3), 0 0 15px rgba(255,255,255,0.1)"
           },
           "100%": {
-            "box-shadow": "0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.3)",
+            "box-shadow": "0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.3)"
           }
         },
         "slide-up-fade": {
           "0%": {
             "opacity": 0,
-            "transform": "translateY(20px)",
+            "transform": "translateY(20px)"
           },
           "100%": {
             "opacity": 1,
-            "transform": "translateY(0)",
-          },
+            "transform": "translateY(0)"
+          }
         },
         "blob": {
           "0%": {
-            "transform": "translate(0px, 0px) scale(1)",
+            "transform": "translate(0px, 0px) scale(1)"
           },
           "33%": {
-            "transform": "translate(30px, -50px) scale(1.1)",
+            "transform": "translate(30px, -50px) scale(1.1)"
           },
           "66%": {
-            "transform": "translate(-20px, 20px) scale(0.9)",
+            "transform": "translate(-20px, 20px) scale(0.9)"
           },
           "100%": {
-            "transform": "translate(0px, 0px) scale(1)",
-          },
+            "transform": "translate(0px, 0px) scale(1)"
+          }
         },
-      },
-    },
+        "lightning": {
+          "0%, 100%": {
+            "opacity": 0,
+            "transform": "scale(0.95)"
+          },
+          "5%, 95%": {
+            "opacity": 0.7,
+            "transform": "scale(1)"
+          },
+          "10%, 90%": {
+            "opacity": 0.6,
+            "transform": "scale(0.98)"
+          },
+          "15%, 85%": {
+            "opacity": 0.7,
+            "transform": "scale(1)"
+          },
+          "20%, 80%": {
+            "opacity": 0,
+            "transform": "scale(0.95)"
+          }
+        }
+      }
+    }
   },
   plugins: [
     addVariablesForColors,
