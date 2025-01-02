@@ -6,118 +6,85 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --foreground: 0 0% 100%;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
-.borderBlack {
-  @apply border border-black/10;
+@layer base {
+  body {
+    @apply bg-white dark:bg-black text-foreground;
+  }
 }
 
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/10 dark:bg-black/10;
+  }
 
-html {
-  --line-color: #e5e7eb;
-}
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
 
-html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
-}
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
 
-.loader{
-  display: block;
-  position: relative;
-  height: 32px;
-  width: 200px;
-  background: #fff;
-  border:2px solid #fff;
-  color: red;
-  overflow: hidden;
-}
-.loader::before{
-  content: '';
-  background: red;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 100%;
-  animation: loading 10s linear infinite;
-}
-.loader:after{
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 24px;
-  line-height: 32px;
-  color: rgb(0,255,255);
-  mix-blend-mode: difference;
-  animation: percentage 10s linear infinite;
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
 }
 
-@keyframes loading {
-  0% { width: 0 }
-  100% { width: 100% }
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
-@keyframes percentage {
-  20% { content: "20%"}
-  30% { content: "30%"}
-  50% { content: "50%"}
-  60% { content: "60%"}
-  98% { content: "98%"}
-  99% { content: "99%"}
-  100% { content: "100%"}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full hover:bg-white/30 transition-colors;
+}
+
+/* Animated background gradient */
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 

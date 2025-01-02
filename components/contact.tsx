@@ -1,83 +1,91 @@
 "use client";
 
-import React, { use, useEffect, useRef } from "react";
-import SectionHeading from "./section-heading";
+import React from "react";
+import { FaPaperPlane } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-btn";
-import toast from "react-hot-toast";
+import GlassCard from "./ui/glass-card";
+import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
-  const formRef = useRef<HTMLFormElement>(null);
-
+  
   return (
     <motion.section
       id="contact"
       ref={ref}
       className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
-      initial={{
-        opacity: 0,
-        y: 100,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: true,
-      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
     >
-      <SectionHeading>Contact me</SectionHeading>
+      <GlassCard className="p-8">
+        <h2 className="text-3xl font-bold mb-8 text-glow">Contact Me</h2>
+        <p className="text-gray-700 dark:text-white/80 mb-8">
+          Please contact me directly at{" "}
+          <a className="underline hover-lift inline-block" href="mailto:example@gmail.com">
+            example@gmail.com
+          </a>{" "}
+          or through this form.
+        </p>
 
-      <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please contact me directly at{" "}
-        <a className="underline" href="mailto:b.sanjay0701@gmail.com">
-          b.sanjay0701@gmail.com
-        </a>{" "}
-        or through this form.
-      </p>
-
-      <form
-        ref={formRef}
-        className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          await sendEmail(formData)
-            .then(({ message, error }) => {
-              toast.success(message);
-              formRef.current?.reset();
-            })
-            .catch((error) => {
-              toast.error(error.message);
-            });
-        }}
-      >
-        <motion.input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white/5 dark:caret-slate-100 dark:bg-opacity-100 dark:focus:bg-opacity-100 transition-all dark:outline-none dark:text-gray-100 dark:border-white/20 dark:focus:border-white dark:focus:outline-1"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="Your email"
-        />
-        <motion.input
-          className="h-14 px-4 mt-3 rounded-lg borderBlack dark:caret-slate-100 dark:bg-white/5 dark:bg-opacity-100 dark:focus:bg-opacity-100 transition-all dark:outline-none dark:text-gray-100 dark:border-white/20 dark:focus:border-white dark:focus:outline-1"
-          name="subject"
-          type="text"
-          required
-          maxLength={500}
-          placeholder="Subject"
-        />
-        <motion.textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white/5 dark:text-gray-100 dark:caret-slate-100 dark:bg-opacity-100 dark:focus:bg-opacity-100 transition-all dark:outline-none dark:border-white/20 dark:focus:border-white dark:focus:outline-1"
-          name="message"
-          placeholder="Your message"
-          required
-          maxLength={5000}
-        />
-        <SubmitBtn />
-      </form>
+        <form
+          className="flex flex-col"
+          action={async (formData) => {
+            await sendEmail(formData);
+          }}
+        >
+          <input
+            className="h-14 px-4 rounded-lg glass-effect border border-white/10 transition-all duration-300 focus:scale-[1.01] focus:border-white/30 mb-3"
+            name="senderEmail"
+            type="email"
+            required
+            maxLength={500}
+            placeholder="Your email"
+          />
+          <input
+            className="h-14 px-4 rounded-lg glass-effect border border-white/10 transition-all duration-300 focus:scale-[1.01] focus:border-white/30 mb-3"
+            name="subject"
+            type="text"
+            required
+            maxLength={500}
+            placeholder="Subject"
+          />
+          <textarea
+            className="h-52 my-3 rounded-lg glass-effect border border-white/10 p-4 transition-all duration-300 focus:scale-[1.01] focus:border-white/30"
+            name="message"
+            placeholder="Your message"
+            required
+            maxLength={5000}
+          />
+          <SubmitButton />
+        </form>
+      </GlassCard>
     </motion.section>
+  );
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <motion.button
+      type="submit"
+      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all hover:scale-105 hover:bg-gray-950 disabled:scale-100 disabled:bg-opacity-65 mt-2 neon-border self-center"
+      disabled={pending}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {pending ? (
+        <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
+      ) : (
+        <>
+          Submit{" "}
+          <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />{" "}
+        </>
+      )}
+    </motion.button>
   );
 }
