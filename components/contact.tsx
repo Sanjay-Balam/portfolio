@@ -15,18 +15,18 @@ export default function Contact() {
     <motion.section
       id="contact"
       ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
+      className="mx-auto mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
-      <GlassCard className="p-8">
+      <GlassCard className="p-8 mx-auto my-auto">
         <h2 className="text-3xl font-bold mb-8 text-glow">Contact Me</h2>
         <p className="text-gray-700 dark:text-white/80 mb-8">
           Please contact me directly at{" "}
-          <a className="underline hover-lift inline-block" href="mailto:example@gmail.com">
-            example@gmail.com
+          <a className="underline hover-lift inline-block" href="mailto:b.sanjay0701@gmail.com">
+          b.sanjay0701@gmail.com
           </a>{" "}
           or through this form.
         </p>

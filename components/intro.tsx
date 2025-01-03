@@ -64,7 +64,7 @@ export default function Intro() {
                   className: "text-3xl font-bold text-glow",
                 },
                 {
-                  text: "passionate in building dynamic and responsive",
+                  text: "passionate in building dynamic & responsive",
                   className: "text-2xl",
                 },
                 {
